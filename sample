@@ -1,0 +1,17 @@
+ import re
+
+def tokenize(text): 
+    return re.findall(r'\w+', text.lower())
+
+racial_slurs={"webaqoof"}
+
+sentence="New Hinglish 21st century dictionary Webaqoof one who believes every claim or allegation on the internet & social media must be true!"
+
+
+tokens = tokenize(sentence)
+
+print(tokens)
+
+# Rate: number of occurrences normalized by total number
+degree_of_profanity = sum(1 for t in tokens if t in racial_slurs) / len(tokens)
+print(degree_of_profanity)
